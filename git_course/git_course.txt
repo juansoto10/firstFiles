@@ -1,0 +1,452 @@
+***CURSO DE GIT***
+
+
+*HACIENDO DEPLOYMENT A UN SERVIDOR*
+
+Se inicia teniendo una url, de un servidor con el que se vaya a trabajar.
+
+Teniendo montado un servidor en linux, estando dentro de la carpeta donde están los archivos del mismo:
+Ej: Ejecutamos el comando 
+    cd /var/www/freddier.com/html/
+
+Traemos el repositorio desde GitHub: 'code' y 'clone', y copiamos la url según sea HTTPS o SSH.
+
+Clonamos el repositorio en nuestra terminal: git clone url
+
+Ya tendríamos los archivos del repositorio en una carpeta con el nombre del repositorio.
+
+Para acceder a determinados archivos solo se colocan en la url.
+Ej: freddier.com/hyperblog/blogspot.html; en este caso accederíamos al archivo -blogspot.html-.
+
+
+El compañero de Platzi 'Estanislao Albin Wotoszyn Grillo' agregó:
+
+"Para practicar de forma fácil pueden levantar un servidor local con python. Primero nos ubicamos en la carpeta del proyecto que queremos inicializar en el servidor y luego ejecutamos el comando según sea python2 o 3.
+
+con Python 2:
+python -m SimpleHTTPServer 8000
+
+con Python 3.x:
+python3 -m http.server 8000
+
+El 8000 indica el puerto donde va a iniciar, entonces en el navegador vamos a 127.0.0.1:8000 y saldrá nuestro proyecto.
+Se puede clonar el repo tranquilamente desde la terminal y para acceder, agrego en la barra de direcciones la ruta a la que quiero ir como hizo Freddy."
+
+
+***IGNORAR ARCHIVOS EN EL REPOSITORIO CON .gitignore***
+
+-Evitar que los archivos binarios del contenido seab parte de un repositorio.
+
+-Se crea un archivo (plain text: *.txt, *.gitignore) llamado '.gitignore' que va a ser una lista con los archivos que se van a ignorar.
+
+-Dentro del archivo escribimos lo que se quiere ignorar:
+*.jpg
+'*' significa 'todo tipo de archivos'
+
+
+Ignorar archivos para no subirlos al repositorio (.gitignore)
+
+Por diversas razones, no todos los archivos que agregas a un proyecto deberían guardarse en un repositorio, ésto porque hay archivos que no todo el mundo debería de ver, y hay archivos que al estar en el repositorio alentan el proceso de desarrollo (por ejemplo los binary large objects, blob, que se tardan en descargarse).
+.
+Para que no se suban estos archivos no deseados se puede crear un archivo con el nombre .gitignore en la raíz del repositorio con las reglas para los archivos que no se deberían subir (ver sintaxis de los .gitignore(https://git-scm.com/docs/gitignore)).
+.
+Las razones principales para tomar la decisión de no agregar un archivo a un repositorio son:
+.
+
+Es un archivo con contraseñas (normalmente con la extensión .env)
+Es un blob (binary large object, objeto binario grande), mismos que son difíciles de gestionar en git.
+Son archivos que se generan corriendo comandos, por ejemplo la carpeta node_modules que genera npm al correr el comando npm install
+
+
+***README.md es una excelente práctica***
+
+Para editarlo podemos abrir el README.md con VS Code o con un editor online como 'editor.md' 
+
+https://pandao.github.io/editor.md/en.html
+
+
+***TU SITIO WEB PÚBLICO CON GITHUB PAGES***
+
+GitHub Pages: Servicio de hosting gratis. Se puede tener un repositorio donde el contenido del mismo se vaya a GitHub y se vea online. (pages.github.com)
+
+'GitHub tiene un servicio de hosting gratis llamado GitHub Pages. Con él, puedes tener un repositorio alojado en GitHub y hacer que el contenido se muestre en la web en tiempo real.
+
+Este es un sitio para nuestros proyectos donde lo único que tenemos que hacer es tener un repositorio alojado. En la página, podemos seguir las instrucciones para crear este repositorio
+
+Pasos para subir un repositorio a GitHub Pages
+Debemos tomar la llave SSH y hacer un git clone #SSHexample en mi computador local (Home).
+Luego, accederemos a la carpeta nueva que aparece en nuestra máquina local.
+Creamos un nuevo archivo que se llame index.html
+Guardamos los cambios, hacemos un git pull y seguido de esto un git push a master.
+Vamos a las opciones de settings de este repositorio y, en la parte de abajo, en la columna Github Pages, configuramos el source o fuente para que traiga la rama master
+Guardamos los cambios.
+Después de esto, podremos ver nuestro trabajo en la web como si tuviéramos nuestro propio servidor.'
+
+Aporte creado por: Jhon Bangera.
+
+
+***GIT REBASE: REORGANIZANDO EL TRABAJO REALIZADO***
+
+Es el proceso de mover o combinar una secuencia de confirmaciones en una nueva confirmación base. La reorganización es muy útil y se visualiza fácilmente en el contexto de un flujo de trabajo de ramas de funciones. El proceso general se puede visualizar de la siguiente manera.
+
+Para hacer un rebase en la rama feature de la rama master, correrías los siguientes comandos:
+
+git checkout feature
+git rebase master
+
+Esto trasplanta la rama feature desde su locación actual hacia la punta de la rama master:
+
+Ahora, falta fusionar la rama feature con la rama master:
+
+git checkout master
+git rebase feature
+
+# No reorganices el historial público
+
+Nunca debes reorganizar las confirmaciones una vez que se hayan enviado a un repositorio público. La reorganización sustituiría las confirmaciones antiguas por las nuevas y parecería que esa parte del historial de tu proyecto se hubiera desvanecido de repente.
+
+Sabías que el comando:
+
+git checkout -
+
+cambia del actual branch al anterior branch en el que hubieras estado trabajando.
+
+
+***GIT STASH: GUARDAR CAMBIOS EN MEMORIA Y RECUPERARLOS DESPUÉS***
+
+El stashed nos sirve para guardar cambios para después, Es una lista de estados que nos guarda algunos cambios que hicimos en Staging para poder cambiar de rama sin perder el trabajo que todavía no guardamos en un commit
+
+Ésto es especialmente útil porque hay veces que no se permite cambiar de rama, ésto porque porque tenemos cambios sin guardar, no siempre es un cambio lo suficientemente bueno como para hacer un commit, pero no queremos perder ese código en el que estuvimos trabajando.
+
+El stashed nos permite cambiar de ramas, hacer cambios, trabajar en otras cosas y, más adelante, retomar el trabajo con los archivos que teníamos en Staging pero que podemos recuperar ya que los guardamos en el Stash.
+
+git stash
+El comando git stash guarda el trabajo actual del Staging en una lista diseñada para ser temporal llamada Stash, para que pueda ser recuperado en el futuro.
+
+Para agregar los cambios al stash se utiliza el comando:
+
+git stash
+Podemos poner un mensaje en el stash, para asi diferenciarlos en git stash list por si tenemos varios elementos en el stash. Ésto con:
+
+git stash save "mensaje identificador del elemento del stashed"
+Obtener elelmentos del stash
+El stashed se comporta como una Stack de datos comportándose de manera tipo LIFO (del inglés Last In, First Out, «último en entrar, primero en salir»), así podemos acceder al método pop.
+
+El método pop recuperará y sacará de la lista el último estado del stashed y lo insertará en el staging area, por lo que es importante saber en qué branch te encuentras para poder recuperarlo, ya que el stash será agnóstico a la rama o estado en el que te encuentres, siempre recuperará los cambios que hiciste en el lugar que lo llamas.
+
+Para recuperar los últimos cambios desde el stash a tu staging area utiliza el comando:
+
+git stash pop
+Para aplicar los cambios de un stash específico y eliminarlo del stash:
+
+git stash pop stash@{<num_stash>}
+Para retomar los cambios de una posición específica del Stash puedes utilizar el comando:
+
+git stash apply stash@{<num_stash>}
+Donde el <num_stash> lo obtienes desden el git stash list
+
+Listado de elementos en el stash
+Para ver la lista de cambios guardados en Stash y así poder recuperarlos o hacer algo con ellos podemos utilizar el comando:
+
+git stash list
+Retomar los cambios de una posición específica del Stash || Aplica los cambios de un stash específico
+
+Crear una rama con el stash
+Para crear una rama y aplicar el stash mas reciente podemos utilizar el comando
+
+git stash branch <nombre_de_la_rama>
+
+Si deseas crear una rama y aplicar un stash específico (obtenido desde git stash list) puedes utilizar el comando:
+
+git stash branch nombre_de_rama stash@{<num_stash>}
+Al utilizar estos comandos crearás una rama con el nombre <nombre_de_la_rama>, te pasarás a ella y tendrás el stash especificado en tu staging area.
+
+Eliminar elementos del stash
+Para eliminar los cambios más recientes dentro del stash (el elemento 0), podemos utilizar el comando:
+
+git stash drop
+Pero si en cambio conoces el índice del stash que quieres borrar (mediante git stash list) puedes utilizar el comando:
+
+git stash drop stash@{<num_stash>}
+Donde el <num_stash> es el índice del cambio guardado.
+
+Si en cambio deseas eliminar todos los elementos del stash, puedes utilizar:
+
+git stash clear
+Consideraciones:
+
+El cambio más reciente (al crear un stash) SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
+Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo creado es necesario agregarlo al Staging Area con git add [nombre_archivo] con la intención de que git tenga un seguimiento de ese archivo, o también utilizando el comando git stash -u (que guardará en el stash los archivos que no estén en el staging).
+Al aplicar un stash este no se elimina, es buena práctica eliminarlo.
+
+
+git stash : Guarda el trabajo actual de manera temporal. (Archivos modificados o eliminados)
+git stash -u : Crea un stash con todos los archivos. (Añadiendo los creados Untracked)
+git stash save “mensaje” : Crea un stash con el mensaje especificado.
+git stash list : Permite visualizar todos los stash existentes.
+git stash clear : Elimina todos los stash existentes.
+git stash drop : Elimina el stash más reciente. El que tiene num_stash=0.
+git stash drop stash@{num_stash} : Elimina un stash específico.
+git stash apply : Aplica el stash más reciente. El que tiene num_stash=0.
+git stash apply stash@{num_stash} : Aplica los cambios de un stash específico.
+git stash pop : Aplica el stash más reciente y lo elimina. El que tiene num_stash=0.
+git stash pop stash@{num_stash} : Aplica los cambios de un stash específico y elimina lo stash.
+git stash branch nombre_de_rama : Crea una rama y aplica el stash mas reciente.
+git stash branch nombre_de_rama stash@{num_stash} : Crea una rama y aplica el stash especificado.
+
+Consideraciones:
+
+El cambio más reciente (al crear un stash) SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
+Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo creado es necesario agregarlo al Staging Area con git add [nombre_archivo] con la intención de que git tenga un seguimiento de ese archivo, o también utilizando el comando git stash -u.
+Al aplicar un stash este no se elimina, es buena práctica eliminarlo.
+
+
+***GIT CLEAN: LIMPIAR TU PROYECTO DE ARCHIVOS NO DESEADOS***
+
+Mientras estamos trabajando en un repositorio podemos añadir archivos a él, que realmente no forma parte de nuestro directorio de trabajo, archivos que no se deberían de agregar al repositorio remoto.
+
+El comando clean actúa en archivos sin seguimiento, este tipo de archivos son aquellos que se encuentran en el directorio de trabajo, pero que aún no se han añadido al índice de seguimiento de repositorio con el comando -add .-
+
+$ git clean
+
+La ejecución del comando predeterminado puede producir un error. La configuración global de Git obliga a usar la opción force con el comando para que sea efectivo. Se trata de un importante mecanismo de seguridad ya que este comando no se puede deshacer.
+
+Revisar que archivos no tienen seguimiento:
+
+$ git clean --dry-run
+
+Eliminar los archivos listados de no seguimiento:
+
+$ git clean -f
+
+
+***GIT CHERRY-PICK: TRAER COMMITS VIEJOS AL HEAD DE UN BRANCH***
+
+Git Cherry-pick es un comando que permite tomar uno o varios commits de otra rama sin tener que hacer un merge completo. Así, gracias a cherry-pick, podríamos aplicar los commits relacionados con nuestra funcionalidad en la rama master sin necesidad de hacer un merge.
+
+Para demostrar cómo utilizar git cherry-pick, supongamos que tenemos un repositorio con el siguiente estado de rama:
+
+a -b - c - d   Master
+         \
+           e - f - g Feature
+
+El uso de git cherry-pick es sencillo y se puede ejecutar de la siguiente manera:
+
+git checkout master
+
+En este ejemplo, commitSha es una referencia de confirmación. Puedes encontrar una referencia de confirmación utilizando el comando git log. En este caso, imaginemos que queremos utilizar la confirmación ‘f’ en la rama master. Para ello, primero debemos asegurarnos de que estamos trabajando con esa rama master.
+
+git cherry-pick f
+
+Una vez ejecutado, el historial de Git se verá así:
+
+a -b - c - d - f   Master
+         \
+           e - f - g Feature
+
+La confirmación f se ha sido introducido con éxito en la rama de funcionalidad.
+
+Atención:
+Cherry-pick es una mala práctica porque significa que estamos reconstruyendo la historia, usa cherry-pick con sabiduría. Si no sabes lo que estás haciendo, mejor evita emplear este comando.
+
+Aporte creado por: Carlos Eduardo Diaz.
+
+
+***GIT RESET Y REFLOG: ÚSESE EN CASO DE EMERGENCIA***
+
+Git guarda todos los cambios aunque decidas borrarlos, al borrar un cambio lo que estás haciendo sólo es actualizar la punta del branch, para gestionar éstas puntas existe un mecanismo llamado registros de referencia o reflogs…La gestión de estos cambios es mediante los hash’es de referencia (o ref) que son apuntadores a los commits…Los recoges registran cuándo se actualizaron las referencias de Git en el repositorio local (sólo en el local), por lo que si deseas ver cómo has modificado la historia puedes utilizar el comando:
+
+git reflog
+
+Muchos comandos de Git aceptan un parámetro para especificar una referencia o “ref”, que es un puntero a una confirmación sobre todo los comandos:
+
+- Con git checkout Puedes moverte sin realizar ningún cambio al commit exacto de la ref.
+
+Ej: git checkout eff544f
+
+- Con git reset: Hará que el último commit sea el pasado por la ref, usar este comando sólo si sabe exactamente qué está haciendo:
+
+git reset --hard eff544f # Perderá todo lo que se encuentra en staging y en el Working directory y se moverá el head al commit eff544f
+
+git reset --soft eff544f # Te recuperará todos los cambios que tengas diferentes al commit eff544f, los agregará al staging area y moverá el head al commit eff544f
+
+Con git merge: Puedes hacer merge de un commit en específico, funciona igual que con un branch, pero te hace el merge del estado específico del commit mandado
+
+git checkout master
+git merge eff544f # Fusionará en un nuevo commit la historia de master con el momento específico al que hace referencia el hash.
+
+¿Qué pasa cuando todo se rompe y no sabemos qué está pasando? Con -git reset HashDelHEAD- nos devolveremos al estado en que el proyecto funcionaba.
+
+git reset --soft HashDelHEAD te mantiene lo que tengas en staging ahí.
+
+git reset --hard HashDelHEAD resetea absolutamente todo incluyendo lo que tengas en staging.
+
+Atención
+git reset es una mala práctica, no deberías usarlo excepto como último recurso en casos específicos.
+
+Aporte creado por: David Behar.
+
+En el ejemplo de la clase:
+Cabecera queda eliminada porque se le hace reset a master, para recuperar cabecera podemos conseguir el commit con reflog e usar
+
+git checkout -b cabecera "commit id"
+
+
+***RECONSTRUIR COMMITS EN GIT CON AMEND***
+
+Cuando se te olvida modificar algo y ya mandaste el commit y no querías que se fuera sin esa modificación, debes hacer lo siguiente:
+
+Hacer lo que se te olvidó.
+Es importante añadirlo con un: git add [archivo_modificado]
+git commit --amend
+
+
+'Remendar un commit con amend puede modificar el commit más reciente (enmendar) en la misma rama. Lo ejecutamos así:
+
+git add archivo_modificado_después_del_commit  # Para hacer uso de amend los archivos deben de estar en staging.
+
+git commit --amend  # 'Remendar' último commit.
+
+Este comando sirve para agregar archivos nuevos o actualizar el commit anterior y no generar commits innecesarios. También es una forma sencilla de editar o agregar comentarios al commit anterior porque abrirá la consola para editar este commit anterior.
+
+Atención:
+Usar amend es una mala práctica, sobre todo cuando ya se ha hecho push o pull al repositorio remoto. Al momento de hacer amend con algún commit que esté en remoto, va a generar un conflicto que se va a arreglar haciendo un commit adicional y se perderá el beneficio del amend.'
+
+Aporte creado por: David Behar.
+
+
+'El comando <git commit --amend> es muy util, pero hay que tener cuidado en algunos casos, como en el caso de que el commit que quieras enmendar lo hayas pusheado al repositorio remoto, entonces quieras enmendar un commit que esta en remoto.
+
+Así como en el caso de cherry-pick y rebase, hay que usarlo con cuidado porque modificará la historia de tu repositorio.
+
+Digamos que haces un cambio al archivo a.txt y haces un commit.
+
+Luego subes ese commit al repositorio haciendo push.
+
+Pero se te olvido agregar cambios a ese commit y quieres enmendarlo.
+
+Haces un git --amend y en la historia de tu repositorio local, pareciera que no ha pasado nada: enmendaste tu commit.
+
+Pero resulta que en el repositorio remoto eso no ha ocurrido, ese git --amend no tuvo lugar en el repositorio remoto, y al hacer git status te mostrará un error así:
+
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+y al momento de hacer push para sobreescribirlo, te aparecerá este error:
+
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:luisxxor/hyperblog-1.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Y tendrás que hacer git pull para mergear los cambios de tu repositorio remoto y finalmente hacer push. Es decir, se puede hacer, pero sería contraproducente, porque la idea del amend era enmendar un sólo commit y no generar commits adicionales, pero el resultado de continuar haciendolo en éste caso es que tienes:
+
+El primer commit
+El commit enmendado
+Y el commit del merge
+tl:dr
+
+Es una mala práctica enmendar un commit que ya ha sido pusheado al repositorio remoto.
+
+
+Si el caso es que únicamente olvidamos incluir archivos al commit y el mensaje que habíamos ingresado estaba bien, también podríamos ejecutar el siguiente comando:
+
+git commit --amend --no-edit
+
+Con el --no-edit además de todo lo que significa el --amend estamos diciéndole a git que utilice el mensaje que ya habíamos ingresado.
+
+
+***BUSCAR EN ARCHIVOS Y COMMITS DE GIT CON GREP Y LOG***
+
+A medida que nuestro proyecto en Git se hace más grande, vamos a querer buscar ciertas cosas.
+
+Por ejemplo: ¿cuántas veces en nuestro proyecto utilizamos la palabra color?
+
+Para buscar, empleamos el comando git grep color y nos buscará en todo el proyecto los archivos en donde está la palabra color.
+
+Con git grep -n color nos saldrá un output el cual nos dirá en qué línea está lo que estamos buscando.
+
+Con git grep -c color nos saldrá un output el cual nos dirá cuántas veces se repite esa palabra y en qué archivo.
+
+Si queremos buscar cuántas veces utilizamos un atributo de HTML lo hacemos con git grep -c "<p>".
+
+
+git grep color -->usé la palabra color
+git grep la --> donde usé la palabra la
+
+git grep -n color–> en que lineas usé la palabra color
+git grep -n platzi --> en que lineas usé la palabra platzi
+
+git grep -c la --> cuantas veces usé la palabra la
+git grep -c platzi --> cuantas veces usé la palabra platzi
+git grep -c “<p>”–> cuantas veces usé la etiqueta <p>
+
+git log -S “cabecera” --> cuantas veces usé la palabra cabecera en
+todos los commits.
+
+grep–> para los archivos
+log --> para los commits.
+
+Por supuesto, en la documentación de la herramienta grep te xplica todas las banderas que se le puede agregar.
+
+A mí me pareció útil “-w” que te permite buscar la palabra tal cual está escrita y no trae otras coincidencias. (ejemplo te trae maría y no te trae amaría, mariado, armaría, etc)
+
+'Por alguna razón el git log -S “Palabra” no me funciona correctamente. Como reemplazo uso: git log --all --grep=‘Palabra’' Daniel G Perico Sánchez
+
+git log --all --grep es más preciso.
+
+Como dato curioso (y a tener en cuenta):
+git -c palabra: NO muestra la cantidad de veces que aparece la palabra sino en cuantas líneas. Puedes tener la palabra 2 veces en la misma línea y git -c no se dará cuenta.
+
+
+***COMANDOS Y RECURSOS COLABORATIVOS EN GITHUB***
+
+'A continuación veremos una lista de comandos colaborativos para facilitar el trabajo remoto en GitHub:
+
+git shortlog -sn: muestra cuantos commit han hecho cada miembro del equipo.
+
+git shortlog -sn --all: muestra cuantos commit han 
+hecho cada miembro del equipo, hasta los que han sido eliminados.
+
+git shortlog -sn --all --no-merge: muestra cuantos commit ha hecho cada miembro, quitando los eliminados sin los merges.
+
+git blame ARCHIVO: muestra quien hizo cada cosa línea por línea.
+
+git COMANDO --help:muestra como funciona el comando.
+
+git blame ARCHIVO -Llinea_inicial,linea_final: muestra quien hizo cada cosa línea por línea, indicándole desde qué línea ver. Ejemplo -L35,50.
+
+git branch -r: se muestran todas las ramas remotas.
+
+git branch -a: se muestran todas las ramas, tanto locales como remotas.'
+
+Aporte creado por: Juan Sebastián Rodriguez.
+
+
+NOTAS CLASE:
+
+'git shortlog: Ver cuantos commits a hecho los miembros del equipo
+
+git shortlog -sn: Las personas que han hecho ciertos commits
+
+git shortlog -sn --all: Todos los commits (también los borrados)
+
+git shortlog -sn --all --no-merges: muestra las estadisticas de los comigs del repositorio donde estoy
+
+git config --global alias.stats “shortlog -sn --all --no-merges”: configura el comando “shortlog -sn 
+--all --no-merges” en un Alias en las configuraciones globales de git del pc
+
+git blame -c blogpost.html: Muestra quien ha hecho cambios en dicho archivo identado
+
+git blame --help: Muestra en el navegador el uso del comando
+
+git blame archivo -L 35, 60 -c: Muestra quien escribio el codigo con informacion de la linea 35 a la 60, EJ: git blame css/estilos.css -L 35, 60 -c
+
+git branch -r: Muestra las Ramas remotas de GitHub
+
+git branch -a: Muestra todas las Ramas del repo y remotas de GitHub.'
+
+platzerito02112019 platzerito02112019.

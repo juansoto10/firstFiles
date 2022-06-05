@@ -15,7 +15,7 @@ def raiz_busq_binaria(numero):
 
         respuesta = (alto + bajo) / 2
 
-    print(f'La raíz cuadrada de {numero} es {respuesta}')    
+    print(f'La raíz cuadrada de {numero} es {respuesta}')
 
 
 def raiz_aprox_soluciones(numero):

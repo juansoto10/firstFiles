@@ -1,0 +1,29 @@
+***ERRORES EN EL CÓDIGO***
+
+
+Los errores son parte de nuestra vida como programadores y hay que saber lidiar con ellos.
+
+Errores:
+
+Syntax Error -> Errores de escritura, Python no ejecuta el programa.
+Exception -> Python se detiene en una línea en específica
+KeyboardInterrupt -> Ctrl + C
+KeyError -> Cuando tratamos de acceder a una llave que no existe
+IndexError -> Cuando tratamos de acceder a un índice que no existe
+FileNotFoundError -> Archivo que no existe
+ZeroDivisionError -> Dividir entre 0
+ImportError -> Intentamos importar un módulo que tiene un error
+Estos son solo algunos ejemplos, hay más de 50 excepciones.
+
+“Elevar”, quiere decir que Python crea un objeto de tipo excepción.
+
+Traceback son los errores que muestran en las consolas. Lo correcto es leer desde el final hasta el principio. En el final nos dirá cuál es la excepción que ocurrió.
+
+🐍 Los Errores de Código
+
+Cuando Python nos avisa
+SyntaxError, detienen el programa-
+Exception, si suceden en una parte del programa que hacen que el programa se detenga.
+Cuando Python no nos avisa
+Debugging
+Depuración

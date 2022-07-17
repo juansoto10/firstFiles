@@ -31,9 +31,9 @@ def run():
 
     # print(round(10.3456, 2))
 
-    a = 5
-    b = 'Platzi'
-    print(a/b)
+    words_list = ['Carlos', 'Maria', 'Sofia', 'Angela']
+    print(words_list)
+    
 
 if __name__ == '__main__':
     run()

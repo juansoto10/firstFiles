@@ -8,13 +8,20 @@
 
 my_dictionary = {
     'Claudia': 48,
-    'Juan': '24',
+    'Juan': 25,
     'Luis': 59,
     'Zuri': 23,
 }
 
 print(my_dictionary['Juan'])
 print(my_dictionary['Luis'])
+
+
+def saludar():
+    print('Hola mundo')
+
+
+saludar()
 
 # Cuando queremos buscar por llave en un diccionario y no sabemos si esa llave existe y queremos evitar un error:
 

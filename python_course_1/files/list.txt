@@ -1,0 +1,13 @@
+carro
+elemento
+archivo
+biblioteca
+universidad
+colegio
+vegetales
+tijeras
+restaurante
+embalse
+monumento
+caserio
+avenida

@@ -29,7 +29,7 @@
 
 
 # EJEMPLO 2
-# *De esta manera le damos mejor manejo y podemso visualizar mejor*
+# *De esta manera le damos mejor manejo y podemos visualizarlo mejor*
 
 def primera_letra(lista_de_palabras):
     primeras_letras = []

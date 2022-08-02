@@ -96,28 +96,60 @@
 
 // 6. Given an array of integers named -arr- of length -n-, reverse correctly its elements.
 
-const arr = [1, 2, 3, 4, 5];
-let n = arr.length;
+// const arr = [1, 2, 3, 4, 5];
+// let n = arr.length;
 
-let l = n - 1;
-let r = 0
+// let l = n - 1;
+// let r = 0
 
-while (l >= r) {
-    arr[l] = arr[r];
-    if(l <=2) {
-        arr[r] = arr[l];
-    }
+// while (l >= r) {
+//     arr[l+1] = arr[r];
+//     arr[r] = arr[l]
+//     console.info(l)
+//     console.info(r)
 
-    l = l - 1;
-    r = r + 1;
-}
+//     l = l - 1;
+//     r = r + 1;
+// }
 
-console.log(arr);
+// console.log(arr);
 
 /* 
+
+1. arr[0]->4
 
 1. l=0, r=4 --> arr[0] = arr[4]: 5 --> arr[4] = 5
 2. l=1, r=3 --> arr[1] = arr[3]: 4 --> arr [3] = 4
 3. l=2, r=2 --> arr[2] = arr[2]: 3 --> arr[2] = 3  
 
 */
+
+
+// 6. Calculating the pseudo average of an array
+
+// const arr = [1, 2, 3, 4, 5];
+// let av = (arr[0] + arr[1])/2;
+// let n = arr.length;
+
+// for(let i = 2; i <= n-1; i++) {
+//     av = av + arr[i]
+//     av = av / 2;
+// }
+
+// console.log(av); // --> 4.0625
+
+
+// 7. Given a string named 'word' which is of the length 'n', print all the ocassions where the characters at index 'i' and 'j' (i < j) are the same. For this it uses the function subString which takes a three parameters: The string to take the substring from, the 1st character of the selected substring and the last character of the selected substring. 
+
+let word = 'Zurita';
+let n = word.length;
+
+for(let i = 0; i < n - 2; i++) {
+    function subString(text, i1, j1) {
+        textToPrint = text;
+        arrTextToPrint = textToPrint.split(' ');
+        for(i1; i1 <= j1; i1++) {
+            console.log()
+        }
+    }
+}

@@ -2,34 +2,34 @@ import math
 
 # (1)
 
-def palindrome(string):
-    return string == string[::-1]
+# def palindrome(string):
+#     return string == string[::-1]
 
 
-try:
-    print(palindrome(1))
-except TypeError:
-    print('Numbers are not allowed')
+# try:
+#     print(palindrome(1))
+# except TypeError:
+#     print('Numbers are not allowed')
 
-# --> Please type a string
-
-
-# (2)
-
-def palindrome_2(string):
-    try:
-        if len(string) == 0:
-            raise ValueError('Empty strings are not allowed')
-        return string == string[::-1]
-    except ValueError as ve:
-        print(ve)
-        return False
+# # --> Please type a string
 
 
-try:
-    print(palindrome_2(''))
-except TypeError:
-    print('Numbers are not allowed')
+# # (2)
+
+# def palindrome_2(string):
+#     try:
+#         if len(string) == 0:
+#             raise ValueError('Empty strings are not allowed')
+#         return string == string[::-1]
+#     except ValueError as ve:
+#         print(ve)
+#         return False
+
+
+# try:
+#     print(palindrome_2(''))
+# except TypeError:
+#     print('Numbers are not allowed')
 
 # --> 
 # Empty strings are not allowed
@@ -51,10 +51,9 @@ try:
         raise ValueError('Negative numbers are not allowed')
     if num == 0:
         raise ValueError('The number 0 has infinite divisors')
-    # if isinstance(num, str):
-    #     raise ValueError('Only numbers are allowed')
 
     print(divisors(num))
     print(':::My program has ended:::')
+
 except ValueError as ve:
     print(ve)

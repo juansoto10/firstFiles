@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+.main {
+  background-color: darkolivegreen;
+  width: 100vw;
+  height: 100vh;
+  min-height: 460px;
+}
+
+.parent {
+  background-color: darkkhaki;
+  width: 60%;
+  height: 70%;
+  min-width: 350px;
+  max-width: 650px;
+  min-height: 280px;
+  max-height: 400px;
+  position: relative;
+  margin: 0 auto;
+  bottom: -80px;
+  border-radius: 1rem;
+  border-style: ridge;
+  border-color: black;
+}
+
+.box-one {
+  background-color: lawngreen;
+  width: 30rem;
+  height: 7rem;
+  padding: 10px;
+  position: relative;
+  bottom: 10%;
+  left: 25%;
+  border-radius: 1rem;
+}
+
+.box-one__figure img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.box-two {
+  width: 90%;
+  height: 60%;
+}
+
+.box-two p {
+  width: inherit;
+  height: inherit;
+  font-size: 1.7rem;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Select vs input list</title>
+    </head>
+    <body>
+        <main>
+            <section>
+                <!-- Using Select -->
+                <select name="courses" id="">
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="HTML5">HTML5</option>
+                    <option value="CSS3">CSS3</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                    <option value="Web Standards">Web Standards</option>
+                </select>
+                <input type="submit">
+            </section>
+            <section>
+                <!-- Using input list -->
+                <input list="courses">
+                <datalist id="courses">
+                    <option value="JavaScript"></option>
+                    <option value="HTML5"></option>
+                    <option value="CSS3"></option>
+                    <option value="Python"></option>
+                    <option value="C#"></option>
+                    <option value="Web Standards"></option>
+                </datalist>
+            </section>
+            <section>
+                <input type="submit" value="Submit info">
+                <button type="submit">Submit info</button>
+            </section>
+        </main>
+    </body>
+</html>

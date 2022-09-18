@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+.parent {
+  padding: 50px;
+  border: 2px black dotted;
+  display: inline-block;
+}
+.box {
+  display: inline-block;
+  border: 2px black dotted;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+
+
+.parent div:last-child {
+  background-color: greenyellow;
+  position: sticky;
+  bottom: 20px;
+} 

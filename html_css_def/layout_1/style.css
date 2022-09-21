@@ -22,8 +22,8 @@ body {
 }
 
 .header .header__logo {
-  width: 6.1rem;
-  height: 3.9rem;
+  width: 7rem;
+  height: 5.2rem;
   background-color: #243e36;
   display: inline-block;
   padding: 0.5rem;
@@ -32,8 +32,8 @@ body {
 }
 
 .header .header__logo img{
-  width: 5.1rem;
-  height: 3rem;
+  width: 5.95rem;
+  height: 4.4rem;
   background-color: #243e36;
   display: inline-block;
 }
@@ -41,12 +41,14 @@ body {
 
 .header .header__title {
   width: 7rem;
+  height: 5.2rem;
   background-color: #157d5e;
   display: inline-block;
   text-align: center;
   padding: 0.2rem;
+  padding-top: 0.9rem;
   position: absolute;
-  left: 7.3rem;
+  left: 8.5rem;
   border-radius: 0.8rem;
   margin-left: 0.3rem;
   font-weight: bold;
@@ -65,7 +67,7 @@ body {
 .header .nav .nav__list .nav__item{
   display: inline-block;
   justify-content: space-between;
-  padding: 12px;
+  padding: 18px 12px 12px 12px;
   color: #243e36;
   font-weight: 700;
 }
@@ -95,7 +97,7 @@ body {
 
 .main__sidebar .main__aside .main__element {
   background-color: #bfd200;
-  height: 7rem;
+  height: 9.95rem;
   margin: 1.4rem;
   padding: 0.8rem;
   border-radius: 0.8rem;
@@ -116,12 +118,12 @@ body {
   height: 90%;
   font-size: 1.55rem;
   font-weight: 500;
-  margin: 0.15rem 0.15rem 0.15rem 0.4rem;
+  margin: 1.6rem 0.15rem 0.15rem 0.4rem;
   padding-top: 1.68rem;
 }
 
 .main__sidebar .main__aside .main__element--large_p p{
-  padding-top: 0.95rem;
+  padding-top: 1.8rem;
 }
 
 .main__content {
@@ -142,12 +144,13 @@ body {
 .main__content .main__article {
   background-color: #7ca982;
   /* width: calc(((100% - 15vw))/4); */
-  width: 18rem;
+  width: 22rem;
   height: 60%;
   display: inline-block;
   margin: 4.5rem 2rem;
   position: relative;
-  left: 1.2rem;
+  left: 6.9rem;
+  bottom: -3.5rem;
   border-radius: 1rem;
 }
 
@@ -170,8 +173,8 @@ body {
 
 .main__article span {
   position: absolute;
-  bottom: 1.5rem;
-  left: 6.9rem;
+  bottom: 1.9rem;
+  left: 8.6rem;
 }
 
 .footer {
@@ -180,4 +183,16 @@ body {
   width: 100%;
   height: 7.1vh;
   display: inline-block;
+}
+
+.footer__list {
+  display: inline-block;
+  font-size: 1.8rem;
+}
+
+.footer__item {
+  display: inline-block;
+  margin: 1.4rem 2.1rem 1rem 1.8rem;
+  position: relative;
+  left: 62rem;
 }

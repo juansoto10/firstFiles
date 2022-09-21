@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cabeza {
+  display: flex;
+  color: #0064ac;
+  font-size: 32px;
+  justify-content: center;
+}
+
+.cabeza nav {
+  display: flex;
+  justify-content: center;
+}
+
+.cabeza ul {
+  display: flex;
+  justify-content: center;
+
+}
+
+.cabeza li {
+  list-style: none;
+  margin: 18px;
+}
+
+  

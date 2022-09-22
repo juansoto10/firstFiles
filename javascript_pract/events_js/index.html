@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM básica</title>
+  </head>
+  <body>
+    <h1 pantalla="platzilg">Manipulación del DOM básica y Eventos</h1>
+    
+    <input id="calculo1" placeholder="Escribe algo aquí">
+
+    <!-- onchange -->
+    <input onchange="inputOnChange()" id="calculo2" placeholder="Escribe algo aquí">
+    
+    <!-- onclick -->
+    <button onclick="btnOnClick()" id="btnCalcular">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
